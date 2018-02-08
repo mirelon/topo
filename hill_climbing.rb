@@ -1,6 +1,12 @@
-require_relative 'get_ele.rb'
+require_relative 'elevations.rb'
+require_relative 'peaks.rb'
 require 'byebug'
 require 'colorize'
+
+def sum(position1, position2)
+  [(position1[0] + position2[0]).round(4), (position1[1] + position2[1]).round(4)]
+end
+
 
 # Return array of arrays
 # Outer arrays is "by the radius"
@@ -10,9 +16,9 @@ def surrounding(position, radius)
   dlng = 0.0001
   (1..radius).map do |r|
     (-r..r).map do |rlat|
-      points = [[position[0] + dlat * rlat, position[1] + dlng * (r - rlat.abs)]]
+      points = [sum(position, [dlat * rlat, dlng * (r - rlat.abs)])]
       if rlat.abs != r
-        points += [[position[0] + dlat * rlat, position[1] + dlng * (rlat.abs - r)]]
+        points += [sum(position, [dlat * rlat, dlng * (rlat.abs - r)])]
       end
       points
     end.flatten(1)
@@ -46,9 +52,10 @@ def climb(position, radius)
   max_rad, max_pos, max_ele, inc, my_ele = highest_neighbor(position, radius)
   if inc < 0 || max_rad < radius
     puts "We have reached the peak (#{my_ele}) at #{position}".green
+    store_peak(position, my_ele)
   else
     puts "Elevation #{max_ele}".yellow
-    sleep 0.2
+    sleep 0.1
     if inc > 0
       puts "Climbing more".light_black
       climb(max_pos, 1)

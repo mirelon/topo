@@ -1,12 +1,7 @@
+require_relative 'db.rb'
 require 'google_maps_service'
-require 'sqlite3'
 require 'byebug'
 require 'colorize'
-
-$db = SQLite3::Database.open 'ele.sqlite3'
-
-count = $db.get_first_value("SELECT COUNT(*) FROM elevations;")
-puts "Records in DB: #{count}".light_black
 
 def get_ele_from_db(position)
   begin
