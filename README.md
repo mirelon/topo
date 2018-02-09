@@ -17,3 +17,7 @@ At first, run `bundle`.
 
 * 0.1 (Elevation) Hill-climbing for finding a local extreme.
 * 0.2 (Prominence) BFS from a peak to find higher peak reachable with smallest possible descent.
+
+## Current status of cached elevations
+
+![Cached elevations image](https://github.com/mirelon/topo/raw/master/elevations.png)
