@@ -29,9 +29,7 @@ def highest_neighbor(position, radius)
   all_positions = [[position]] + surrounding(position, radius)
   my_elevation = get_ele(position)
   neighbor_elevations = surrounding(position, radius).map do |positions_on_r|
-                          positions_on_r.map do |p|
-                            get_ele(p)
-                          end
+                          get_eles(positions_on_r).values
                         end
   max_ele_for_radiuses_and_index = ([0] + neighbor_elevations.map(&:max)).each_with_index.max
   max_elevation = max_ele_for_radiuses_and_index[0]
@@ -54,8 +52,8 @@ def climb(position, radius)
     puts "We have reached the peak (#{my_ele}) at #{position}".green
     store_peak(position, my_ele)
   else
-    puts "Elevation #{max_ele}".yellow
-    sleep 0.1
+    puts "Elevation #{max_ele}, position #{max_pos}".yellow
+    sleep 0.05
     if inc > 0
       puts "Climbing more".light_black
       climb(max_pos, 1)
