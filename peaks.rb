@@ -18,3 +18,8 @@ def store_peak(position, elevation)
     system("google-chrome #{url}")
   end
 end
+
+def get_peak(id)
+  where = id ? " WHERE id = #{id.to_i}" : ""
+  $db.get_first_row("SELECT elevation, lat, lng FROM peaks#{where};")
+end

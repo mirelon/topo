@@ -35,6 +35,7 @@ def get_eles_from_db(positions)
   eles
 end
 
+# Return hash {position => elevation}
 def get_eles(positions)
   eles = positions.map{|p| [p, nil]}.to_h 
   puts "Requesting #{positions.size} positions".light_black

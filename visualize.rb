@@ -9,7 +9,7 @@ $minele = $db.get_first_value("SELECT min(ele) FROM elevations;")
 $maxele = $db.get_first_value("SELECT max(ele) FROM elevations;")
 $width = (10000 * ($maxlng - $minlng) + 1).round
 $height = (10000 * ($maxlat - $minlat) + 1).round
-$color_scale = [[0, 220], [255, 0], [0, 0], [128, 128]]
+$color_scale = [[0, 220], [255, 0], [0, 0], [255, 255]]
 
 puts "Min elevation = #{$minele}, max elevation = #{$maxele}"
 

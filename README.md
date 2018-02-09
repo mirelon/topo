@@ -2,9 +2,16 @@
 
 ## Usage
 
-At first, run `bundle`. Then, specify the initial position in `main.rb` and run `ruby main.rb`.
-The intermittent positions are cached in table `elevations`.
-The found peak is stored in table `peaks`.
+
+At first, run `bundle`.
+
+* Run `ruby main.rb`. Specify initial coordinates as an argument, e.g. `ruby main.rb 48.1234,17.1234`. The intermittent positions are cached in table `elevations`. The found peak is stored in table `peaks`. A new tab in google-chrome is opened with map of all peaks. 
+* Run `ruby visualize.rb`. A file `elevations.png` is created and opened in new tab in google-chrome.
+* Run `ruby prominence.rb`. Optionally specify id of the peak to count prominence of, e.g. `ruby prominence.rb 6`. Broad-first search is performed until a saddle point is found. The intermittent positions are cached in table `elevations`.
+
+## Dependencies
+
+[Dependency diagram](https://drive.google.com/file/d/1w_ES1l23431xla3ORWKU3THVlxcRg4AG/view?usp=sharing)
 
 ## Roadmap
 
