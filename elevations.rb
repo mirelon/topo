@@ -30,8 +30,8 @@ def get_ele(position)
 end
 
 def get_eles_from_db(positions)
-  positions_as_string = positions.map{|p| "(#{p[0]}, #{p[1]})"}.join(", ")
-  eles = $db.execute("SELECT lat, lng, ele FROM elevations WHERE (lat, lng) IN (VALUES #{positions_as_string});")
+  positions_as_string = positions.map{|p| "'#{p[0]}-#{p[1]}'"}.join(", ")
+  eles = $db.execute("SELECT lat, lng, ele FROM elevations WHERE lat || '-' || lng IN (#{positions_as_string});")
   eles
 end
 
