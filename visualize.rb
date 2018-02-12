@@ -9,7 +9,7 @@ $minele = $db.get_first_value("SELECT min(ele) FROM elevations;")
 $maxele = $db.get_first_value("SELECT max(ele) FROM elevations;")
 $width = (10000 * ($maxlng - $minlng) + 1).round
 $height = (10000 * ($maxlat - $minlat) + 1).round
-$color_scale = [[0, 220], [255, 0], [0, 0], [255, 255]]
+$color_scale = [[0, 220, 150], [150, 220, 0], [0, 0, 0], [255, 255, 255]]
 
 puts "Min elevation = #{$minele}, max elevation = #{$maxele}"
 
@@ -17,7 +17,12 @@ def get_color(ele)
   puts "Getting color for elevation #{ele}"
   ele_normalized = (ele - $minele) / ($maxele - $minele)
   color = $color_scale.map do |scale|
-            (ele_normalized * (scale[1] - scale[0]) + scale[0]).round
+            if ele_normalized < 0.5
+              (ele_normalized * 2 * (scale[1] - scale[0]) + scale[0]).round
+            else
+              ((ele_normalized - 0.5) * 2 * (scale[2] - scale[1]) + scale[1]).round
+            end
+            
           end
   puts color.inspect
   color
