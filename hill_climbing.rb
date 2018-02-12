@@ -29,7 +29,8 @@ def climb(position, radius)
   max_rad, max_pos, max_ele, inc, my_ele = highest_neighbor(position, radius)
   if inc < 0 || max_rad < radius
     puts "We have reached the peak (#{my_ele}) at #{position}".green
-    store_peak(position, my_ele)
+    peak_id = store_peak(position, my_ele)
+    [position, my_ele, peak_id]
   else
     puts "Elevation #{max_ele}, position #{max_pos}".yellow
     sleep 0.05

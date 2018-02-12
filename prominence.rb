@@ -1,6 +1,4 @@
-require_relative 'surrounding.rb'
-require_relative 'elevations.rb'
-require_relative 'peaks.rb'
+require_relative 'hill_climbing.rb'
 require 'colorize'
 
 peak = get_peak(ARGV[0])
@@ -29,7 +27,20 @@ while $ele > 0
     max_in_new_contour = new_contour.max
     # puts "max_in_new_contour = #{max_in_new_contour}"
     if max_in_new_contour[1] > $ele + 1 && !$visited_before.include?(max_in_new_contour[0])
-      puts "Found candidate to break dominance: #{max_in_new_contour}"
+      puts "Found candidate to break dominance: #{max_in_new_contour}".yellow
+      prominence_parent_candidate = climb(max_in_new_contour[0], 1)
+      puts "Climbed up to #{prominence_parent_candidate}".yellow
+      if prominence_parent_candidate[1] > peak[0].to_i
+        key_col = $ele + 1
+        prominence = peak[0].to_i - key_col
+        puts "Prominence data of #{peak}:".light_green
+        puts "Prominence parent: #{prominence_parent_candidate}".light_green
+        puts "Key col: #{key_col}".light_green
+        puts "Prominence: #{prominence}".light_green
+        update_prominence(ARGV[0], prominence, prominence_parent_candidate[2])
+      else
+        puts "Not high enough"
+      end
       exit
     else
       $contour = new_contour.keys
