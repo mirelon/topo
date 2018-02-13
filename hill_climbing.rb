@@ -33,7 +33,7 @@ def climb(position, radius)
     [position, my_ele, peak_id]
   else
     puts "Elevation #{max_ele}, position #{max_pos}".yellow
-    sleep 0.05
+    sleep 0.01
     if inc > 0
       puts "Climbing more".light_black
       climb(max_pos, 1)
