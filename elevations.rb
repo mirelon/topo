@@ -37,6 +37,10 @@ end
 
 # Return hash {position => elevation}
 def get_eles(positions)
+  e = positions.each_slice(320).map{|p| get_eles2(p)}.reduce(:merge)
+end
+
+def get_eles2(positions)
   eles = positions.map{|p| [p, nil]}.to_h 
   puts "Requesting #{positions.size} positions".light_black
   get_eles_from_db(positions).each{|lat, lng, ele| eles[[lat, lng]] = ele}

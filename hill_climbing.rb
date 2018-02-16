@@ -4,6 +4,8 @@ require_relative 'surrounding.rb'
 require 'byebug'
 require 'colorize'
 
+# Find the maximal position inside the circle around position with the given radius
+# Return a quintuple [max_radius, max_position, max_elevation, increase, my_elevation]
 def highest_neighbor(position, radius)
   all_positions = [[position]] + surrounding(position, radius)
   my_elevation = get_ele(position)
@@ -25,6 +27,7 @@ def highest_neighbor(position, radius)
   [max_radius, max_position, max_elevation, increase, my_elevation]
 end
 
+# Return a triple [position. elevation, ID]
 def climb(position, radius)
   max_rad, max_pos, max_ele, inc, my_ele = highest_neighbor(position, radius)
   if inc < 0 || max_rad < radius
