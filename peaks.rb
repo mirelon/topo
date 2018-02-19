@@ -26,6 +26,10 @@ def get_peak(id)
   $db.get_first_row("SELECT elevation, lat, lng, key_col FROM peaks#{where};")
 end
 
+def get_all_peaks
+  $db.execute("SELECT elevation, prominence, lat, lng FROM peaks;")
+end
+
 def update_prominence(id, prominence, prominence_parent_id)
   puts "UPDATE peaks SET prominence_parent_id = #{prominence_parent_id}, prominence = #{prominence} WHERE id = #{id.to_i};"
   $db.execute("UPDATE peaks SET prominence_parent_id = #{prominence_parent_id}, prominence = #{prominence} WHERE id = #{id.to_i};")

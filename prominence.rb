@@ -11,13 +11,12 @@ puts "Starting with the peak with elevation #{$peak[0]}"
 
 # Items consists of [elevation, position]
 $ele = $peak[3] || $peak[0].to_i
-$contour = [[$peak[1], $peak[2]]]
+$front = [[$peak[1], $peak[2]]]
 $visited = [[$peak[1], $peak[2]]]
 $visited_before = []
-$saddle = nil
 
 def check_higher(position_with_ele)
-  if position_with_ele[1] > $peak[0].to_f && !$saddle.nil?
+  if position_with_ele[1] > $peak[0].to_f
     puts "Reached higher. Climbing to the prominence parent".light_green
     prominence_parent_position, prominence_parent_elevation, prominence_parent_id = climb(position_with_ele[0], 1)
     key_col = $ele + 1
@@ -32,17 +31,10 @@ def check_higher(position_with_ele)
   end
 end
 
-def check_saddle(position_with_ele)
-  if position_with_ele[1] > $ele + 1 && !$visited_before.include?(position_with_ele[0]) && $saddle.nil?
-    $saddle = position_with_ele
-    puts "Found saddle #{$saddle}"
-  end
-end
-
-def continue_spilling(new_contour)
-  $contour = new_contour.keys
-  puts "Continue spilling with #{$contour.size} positions"
-  $visited += $contour
+def continue_spilling(new_front)
+  $front = new_front.keys
+  puts "Continue spilling with #{$front.size} positions"
+  $visited += $front
   puts "Total visited #{$visited.size}"
 end
 
@@ -50,32 +42,30 @@ def spilled_entirely_above
   puts "Spilled entirely above #{$ele}, total visited #{$visited.size}".light_green
   update_key_col(ARGV[0], $ele)
   $ele -= 1
-  $contour = [[$peak[1], $peak[2]]]
+  $front = [[$peak[1], $peak[2]]]
   $visited_before += $visited
   puts "$visited_before.size = #{$visited_before.size}"
   $visited = [[$peak[1], $peak[2]]]
-  $saddle = nil
 end
 
 while $ele > 0
   
-  new_contour = $contour.map{|p| surrounding(p, 1)}.flatten(2).uniq - $visited
-  # puts "new_contour = #{new_contour}"
-  if new_contour.size > 0
+  new_front = $front.map{|p| surrounding(p, 1)}.flatten(2).uniq - $visited
+  # puts "new_front = #{new_front}"
+  if new_front.size > 0
     # array of positions
-    new_contour = get_eles(new_contour)
+    new_front = get_eles(new_front)
     # array of [position, elevation]
-    # puts "new_contour with elevations = #{new_contour}"
-    new_contour = new_contour.select{|p,ele| ele >= $ele}
-    # puts "new_contour with elevations above #{ele} = #{new_contour}"
+    # puts "new_front with elevations = #{new_front}"
+    new_front = new_front.select{|p,ele| ele >= $ele}
+    # puts "new_front with elevations above #{ele} = #{new_front}"
   end
-  if new_contour.size > 0
-    max_in_new_contour = new_contour.max
+  if new_front.size > 0
+    max_in_new_front = new_front.max_by{|p,e| e}
     # Pair [position, elevation]
-    # puts "max_in_new_contour = #{max_in_new_contour}"
-    check_saddle(max_in_new_contour)
-    check_higher(max_in_new_contour)
-    continue_spilling(new_contour)
+    # puts "max_in_new_front = #{max_in_new_front}"
+    check_higher(max_in_new_front)
+    continue_spilling(new_front)
   else
     spilled_entirely_above
   end
