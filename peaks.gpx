@@ -1,0 +1,129 @@
+DB contains 108806 elevations and 40 peaks
+<?xml version="1.0"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1" creator="GPX RubyGem 0.9.0 -- http://dougfales.github.io/gpx/" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name/>
+    <time>2018-02-16T17:34:26+01:00</time>
+    <bound minlat="90.0" minlon="180.0" maxlat="-90.0" maxlon="-180.0"/>
+  </metadata>
+  <wpt lat="48.5822" lon="17.8405">
+    <name>(235.81, 0)</name>
+  </wpt>
+  <wpt lat="48.5795" lon="17.8439">
+    <name>(242.92, 0)</name>
+  </wpt>
+  <wpt lat="48.5747" lon="17.848">
+    <name>(265.9, 19)</name>
+  </wpt>
+  <wpt lat="48.5788" lon="17.8707">
+    <name>(322.95, 0)</name>
+  </wpt>
+  <wpt lat="48.5657" lon="17.8576">
+    <name>(285.85, 5)</name>
+  </wpt>
+  <wpt lat="48.5719" lon="17.8313">
+    <name>(160.96, 0)</name>
+  </wpt>
+  <wpt lat="48.5644" lon="17.8314">
+    <name>(156.96, 1)</name>
+  </wpt>
+  <wpt lat="48.5658" lon="17.8349">
+    <name>(155.89, 0)</name>
+  </wpt>
+  <wpt lat="48.5675" lon="17.8397">
+    <name>(156.0, 1)</name>
+  </wpt>
+  <wpt lat="48.561" lon="17.8521">
+    <name>(246.74, 5)</name>
+  </wpt>
+  <wpt lat="48.576" lon="17.8336">
+    <name>(158.87, -1)</name>
+  </wpt>
+  <wpt lat="48.5699" lon="17.8803">
+    <name>(415.89, 0)</name>
+  </wpt>
+  <wpt lat="48.5499" lon="17.8015">
+    <name>(152.92, -1)</name>
+  </wpt>
+  <wpt lat="48.5603" lon="17.8191">
+    <name>(156.77, 1)</name>
+  </wpt>
+  <wpt lat="48.5527" lon="17.8569">
+    <name>(281.99, -1)</name>
+  </wpt>
+  <wpt lat="48.5575" lon="17.8425">
+    <name>(208.95, -1)</name>
+  </wpt>
+  <wpt lat="48.5747" lon="17.8789">
+    <name>(374.93, 0)</name>
+  </wpt>
+  <wpt lat="48.561" lon="17.8781">
+    <name>(457.83, )</name>
+  </wpt>
+  <wpt lat="48.5788" lon="17.8446">
+    <name>(245.82, -1)</name>
+  </wpt>
+  <wpt lat="48.5533" lon="17.8857">
+    <name>(433.71, 16)</name>
+  </wpt>
+  <wpt lat="48.5576" lon="17.8789">
+    <name>(429.88, -1)</name>
+  </wpt>
+  <wpt lat="48.5692" lon="17.8315">
+    <name>(157.97, -1)</name>
+  </wpt>
+  <wpt lat="48.573" lon="17.8342">
+    <name>(161.0, 1)</name>
+  </wpt>
+  <wpt lat="48.5705" lon="17.8858">
+    <name>(453.76, 24)</name>
+  </wpt>
+  <wpt lat="48.5569" lon="17.8027">
+    <name>(153.99, )</name>
+  </wpt>
+  <wpt lat="48.563" lon="17.8191">
+    <name>(157.89, )</name>
+  </wpt>
+  <wpt lat="48.5507" lon="17.8699">
+    <name>(395.77, 13)</name>
+  </wpt>
+  <wpt lat="48.5719" lon="17.831">
+    <name>(160.96, 0)</name>
+  </wpt>
+  <wpt lat="48.5815" lon="17.8892">
+    <name>(478.66, )</name>
+  </wpt>
+  <wpt lat="48.5857" lon="17.8905">
+    <name>(471.59, 10)</name>
+  </wpt>
+  <wpt lat="48.574" lon="17.8569">
+    <name>(268.92, 0)</name>
+  </wpt>
+  <wpt lat="48.5712" lon="17.8658">
+    <name>(307.52, 1)</name>
+  </wpt>
+  <wpt lat="48.5726" lon="17.8721">
+    <name>(357.87, 3)</name>
+  </wpt>
+  <wpt lat="48.5733" lon="17.8741">
+    <name>(355.84, 0)</name>
+  </wpt>
+  <wpt lat="48.5857" lon="17.8748">
+    <name>(331.67, 4)</name>
+  </wpt>
+  <wpt lat="48.5808" lon="17.8789">
+    <name>(327.64, 1)</name>
+  </wpt>
+  <wpt lat="48.5477" lon="17.8761">
+    <name>(414.87, )</name>
+  </wpt>
+  <wpt lat="48.53" lon="17.8878">
+    <name>(323.87, )</name>
+  </wpt>
+  <wpt lat="48.5781" lon="17.872">
+    <name>(328.93, 0)</name>
+  </wpt>
+  <wpt lat="48.5698" lon="17.8864">
+    <name>(452.99, 23)</name>
+  </wpt>
+</gpx>

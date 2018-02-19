@@ -7,8 +7,15 @@ GEM
       hurley (~> 0.1)
       multi_json (~> 1.11)
       retriable (~> 2.0)
+    gpx (0.9.0)
+      nokogiri (~> 1.7)
+      rake
     hurley (0.2)
+    mini_portile2 (2.3.0)
     multi_json (1.13.1)
+    nokogiri (1.8.2)
+      mini_portile2 (~> 2.3.0)
+    rake (12.3.0)
     retriable (2.1.0)
     sqlite3 (1.3.13)
 
@@ -19,6 +26,7 @@ DEPENDENCIES
   chunky_png
   colorize
   google_maps_service
+  gpx
   sqlite3
 
 BUNDLED WITH
