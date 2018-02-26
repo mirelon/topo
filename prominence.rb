@@ -10,7 +10,7 @@ end
 puts "Starting with the peak with elevation #{$peak[0]}"
 
 # Items consists of [elevation, position]
-$ele = $peak[3] || $peak[0].to_i
+$ele = $peak[3] ? $peak[3] - 1 : $peak[0].to_i
 $front = [[$peak[1], $peak[2]]]
 $visited = [[$peak[1], $peak[2]]]
 $visited_before = []

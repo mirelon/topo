@@ -1,4 +1,4 @@
-require_relative 'db.rb'
+require_relative 'visualize.rb'
 require 'google_maps_service'
 require 'byebug'
 require 'colorize'
@@ -22,6 +22,7 @@ def cache_ele_from_google(position)
   ele = get_eles_from_google([position])[0][:elevation]
   puts "Caching #{ele} for #{position}"
   $db.execute("INSERT INTO elevations(lat, lng, ele) VALUES (#{position[0]}, #{position[1]}, #{ele})")
+  store_elevations_to_png([[position[0], position[1], ele]])
   ele
 end
 
@@ -52,11 +53,12 @@ def get_eles2(positions)
                lat = position_data[:location][:lat]
                lng = position_data[:location][:lng]
                eles[[lat, lng]] = ele
-               "(#{lat}, #{lng}, #{ele})"
+               [lat, lng, ele]
              end
     if values
       puts "Caching #{values.size} elevations".light_black
-      $db.execute("INSERT INTO elevations(lat, lng, ele) VALUES #{values.join(',')};")
+      $db.execute("INSERT INTO elevations(lat, lng, ele) VALUES #{values.map{|lat, lng, ele| "(#{lat}, #{lng}, #{ele})"}.join(',')};")
+      # store_elevations_to_png(values)
     else
       puts "No elevations returned from Google API"
     end
